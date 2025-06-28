@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Servicios
 {
-    public class ServicioSingletonSesion
+    public class ServicioSingleton
     {
         private static ServicioSesion _instancia;
         private static object _lock = new object();

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BE;
-using SingeltonSession;
 using DAL;
 using Servicios;
 
@@ -14,7 +13,7 @@ namespace BLL
     {
         public LoginResult Login(string usuario, string password)
         {
-            if (ServicioSingletonSesion.Instancia.IsLogged())
+            if (ServicioSingleton.Instancia.IsLogged())
                 throw new Exception("Ya hay una sesión iniciada");
 
             var usuarioCon = UsuarioDAL.GetByEmail(usuario);
@@ -52,7 +51,7 @@ namespace BLL
                     UsuarioDAL.UpdateRetries(usuarioCon);
                 }
 
-                ServicioSingletonSesion.Instancia.Login(usuarioCon);
+                ServicioSingleton.Instancia.Login(usuarioCon);
                 return LoginResult.ValidUser;
             }
         }
@@ -69,10 +68,10 @@ namespace BLL
 
         public void Logout()
         {
-            if (!ServicioSingletonSesion.Instancia.IsLogged())
+            if (!ServicioSingleton.Instancia.IsLogged())
                 throw new Exception("No hay sesion iniciada");
 
-            ServicioSingletonSesion.Instancia.Logout();
+            ServicioSingleton.Instancia.Logout();
         }
 
         public int UnblockUser(string usuario)

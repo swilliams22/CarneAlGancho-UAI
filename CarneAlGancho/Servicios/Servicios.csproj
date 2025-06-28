@@ -45,7 +45,7 @@
     <Compile Include="Excepciones\LoginResult.cs" />
     <Compile Include="ServicioEncriptador.cs" />
     <Compile Include="ServicioSesion.cs" />
-    <Compile Include="ServicioSingletonSesion.cs" />
+    <Compile Include="ServicioSingleton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
